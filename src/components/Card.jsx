@@ -27,7 +27,11 @@ function Card({ book }) {
                   <h3 className="title">{books.volumeInfo.title}</h3>
                 </div>
               </div>
-              <Modal show={show} books={bookItem} />
+              <Modal
+                show={show}
+                books={bookItem}
+                onClose={() => setShow(false)}
+              />
             </>
           );
         } else {

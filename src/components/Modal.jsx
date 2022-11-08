@@ -1,6 +1,6 @@
 import React from "react";
 
-function Modal({ show, books }) {
+function Modal({ show, books, onClose }) {
   if (!show) {
     return null;
   }
@@ -11,7 +11,7 @@ function Modal({ show, books }) {
     <>
       <div className="overlay">
         <div className="overlay-inner">
-          <button className="close">
+          <button className="close" onClick={onClose}>
             <i className="fas fa-times"></i>
           </button>
           <div className="inner-box">

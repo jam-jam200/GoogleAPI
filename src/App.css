@@ -178,6 +178,7 @@ html {
   border: none;
   font-size: 17px;
   background: transparent;
+  cursor: pointer;
 }
 
 .overlay-inner .inner-box {
