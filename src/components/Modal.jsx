@@ -1,7 +1,12 @@
 import React from "react";
-import Book from "../assets/book.jpg";
 
-function Modal() {
+function Modal({ show, books }) {
+  if (!show) {
+    return null;
+  }
+  let thumbnail =
+    books.volumeInfo.imageLinks && books.volumeInfo.imageLinks.smallThumbnail;
+
   return (
     <>
       <div className="overlay">
@@ -10,24 +15,25 @@ function Modal() {
             <i className="fas fa-times"></i>
           </button>
           <div className="inner-box">
-            <img src={Book} alt="" />
+            <img src={thumbnail} alt="" />
             <div className="info">
-              <h1>ReactJS by Example- building modern app with react</h1>
-              <h3>Lorem ipsum</h3>
-              <br />
+              <h1>{books.volumeInfo.title}</h1>
+              <h3>{books.volumeInfo.authors}</h3>
               <h4>
-                Lorem ipsum dolor <span>2016-04-21</span>
+                {books.volumeInfo.publisher}
+                <span>{books.volumeInfo.publishedDate}</span>
               </h4>
               <br />
-              <a href="#">
+              <a
+                href={books.volumeInfo.previewLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <button>More</button>
               </a>
             </div>
           </div>
-          <h4 className="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio
-            tempore ullam suscipit.
-          </h4>
+          <h4 className="description">{books.volumeInfo.description}</h4>
         </div>
       </div>
     </>

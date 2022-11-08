@@ -140,20 +140,10 @@ html {
   flex-direction: column;
 }
 
-.card .bottom .tittle {
-  font-size: 14px;
-  margin-bottom: 12px;
-}
-
-.card .bottom .amount {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  left: 10px;
-  background: var(--primary-color);
-  color: #041e42;
-  font-weight: bold;
-  font-size: 13px;
+.card .bottom .title {
+  font-size: 20px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 .overlay {
@@ -200,4 +190,30 @@ html {
   margin-right: 20px;
   width: 150px;
   height: 200px;
+}
+
+.overlay-inner .inner-box h3 {
+  margin-top: 10px;
+  color: #002d62;
+}
+
+.overlay-inner .inner-box h4 {
+  color: #5072a7;
+}
+
+.overlay-inner .inner-box button {
+  outline: none;
+  border: none;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #041e42;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.3rem 0.5rem !important;
+}
+
+.overlay-inner .description {
+  margin-top: 2rem;
+  text-align: justify;
+  font-size: 13px;
 }

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Modal from "./Modal";
 
 function Card({ book }) {
+  const [show, setShow] = useState(false);
+  const [bookItem, setBookItem] = useState();
   console.log(book);
   return (
     <div>
@@ -9,18 +11,23 @@ function Card({ book }) {
         let thumbnail =
           books.volumeInfo.imageLinks &&
           books.volumeInfo.imageLinks.smallThumbnail;
-        let amount = books.saleInfo.saleability && books.saleInfo.saleability;
-        if (thumbnail != undefined || amount != undefined) {
+        if (thumbnail != undefined) {
           return (
             <>
-              <div key={books.id} className="card">
+              <div
+                key={books.id}
+                className="card"
+                onClick={() => {
+                  setShow(true);
+                  setBookItem(books);
+                }}
+              >
                 <img src={thumbnail} alt="book" />
                 <div className="bottom">
                   <h3 className="title">{books.volumeInfo.title}</h3>
-                  <p className="amount">{amount}</p>
                 </div>
               </div>
-              <Modal />
+              <Modal show={show} books={bookItem} />
             </>
           );
         } else {
